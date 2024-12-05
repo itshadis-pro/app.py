@@ -17,7 +17,6 @@ page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-color: #ffe4e1;
-    background-image: url("https://i.pinimg.com/originals/1e/4d/c3/1e4dc343bdf379b776fef360bf5b5f01.jpg");
     background-size: cover;
 }
 [data-testid="stHeader"] {
@@ -27,13 +26,6 @@ page_bg_color = """
 """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
-# Dancing couple GIF
-dancing_gif_url = "https://media.giphy.com/media/l4Ki2obCyAQS5WhFe/giphy.gif"  # Replace with your preferred GIF
-st.markdown(
-    f"<div style='text-align: center;'><img src='{dancing_gif_url}' width='300'></div>",
-    unsafe_allow_html=True,
-)
-
 if target_date_input:
     try:
         # Parse the target date
@@ -42,8 +34,17 @@ if target_date_input:
         remaining_time = target_date - now
 
         if remaining_time.total_seconds() <= 0:
+            # Show romantic dancing animation when the countdown ends
             st.markdown(
-                "<h2 style='text-align: center; color: red;'>💘 It's time! Make it unforgettable! 💘</h2>",
+                "<h2 style='text-align: center; color: red;'>💘 The wait is over! Dance with joy! 💘</h2>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                """
+                <div style='text-align: center;'>
+                    <img src='https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif' width='400' />
+                </div>
+                """,
                 unsafe_allow_html=True,
             )
         else:
@@ -73,8 +74,17 @@ if target_date_input:
                 time.sleep(1)  # Update every second
 
             # When time is up
-            countdown_placeholder.markdown(
-                "<h2 style='text-align: center; color: red;'>🎉 The wait is over! Celebrate your love! 🎉</h2>",
+            countdown_placeholder.empty()
+            st.markdown(
+                "<h2 style='text-align: center; color: red;'>💘 The wait is over! Dance with joy! 💘</h2>",
+                unsafe_allow_html=True,
+            )
+            st.markdown(
+                """
+                <div style='text-align: center;'>
+                    <img src='https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif' width='400' />
+                </div>
+                """,
                 unsafe_allow_html=True,
             )
     except ValueError:
