@@ -12,11 +12,12 @@ st.markdown(
 st.markdown("### 🥰 Enter the date you're looking forward to, my love! (YYYY-MM-DD):")
 target_date_input = st.text_input("")
 
-# Background customization
+# Background color customization
 page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-color: #ffe4e1;
+    background-image: url("https://i.pinimg.com/originals/1e/4d/c3/1e4dc343bdf379b776fef360bf5b5f01.jpg");
     background-size: cover;
 }
 [data-testid="stHeader"] {
@@ -25,6 +26,13 @@ page_bg_color = """
 </style>
 """
 st.markdown(page_bg_color, unsafe_allow_html=True)
+
+# Dancing couple GIF
+dancing_gif_url = "https://media.giphy.com/media/l4Ki2obCyAQS5WhFe/giphy.gif"  # Replace with your preferred GIF
+st.markdown(
+    f"<div style='text-align: center;'><img src='{dancing_gif_url}' width='300'></div>",
+    unsafe_allow_html=True,
+)
 
 if target_date_input:
     try:
@@ -35,28 +43,14 @@ if target_date_input:
 
         if remaining_time.total_seconds() <= 0:
             st.markdown(
-                "<h2 style='text-align: center; color: red;'>💘 The wait is over! Celebrate your love! 💘</h2>",
+                "<h2 style='text-align: center; color: red;'>💘 It's time! Make it unforgettable! 💘</h2>",
                 unsafe_allow_html=True,
             )
         else:
-            # Display the countdown and loving couple animation
+            # Display the countdown in real-time
             st.markdown("<h2 style='text-align: center;'>⏳ Time Remaining:</h2>", unsafe_allow_html=True)
-            
-            # Create placeholders for countdown and animation
             countdown_placeholder = st.empty()
-            animation_placeholder = st.empty()
-            
-            # Embed a more romantic GIF of a loving couple dancing
-            animation_placeholder.markdown(
-                """
-                <div style='text-align: center;'>
-                    <img src='https://media.giphy.com/media/l0HlPjezGYj6rg2Io/giphy.gif' width='400' />
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
 
-            # Real-time countdown
             while remaining_time.total_seconds() > 0:
                 now = datetime.now()
                 remaining_time = target_date - now
@@ -68,7 +62,7 @@ if target_date_input:
                 minutes = (total_seconds // 60) % 60
                 seconds = total_seconds % 60
 
-                # Update the countdown display
+                # Update the countdown with romantic formatting
                 countdown_placeholder.markdown(f"""
                 <div style='text-align: center; font-size: 24px;'>
                     <p style='font-size: 40px; color: #ff69b4;'>💝 {days} Days 💝</p>
@@ -79,12 +73,9 @@ if target_date_input:
                 time.sleep(1)  # Update every second
 
             # When time is up
-            countdown_placeholder.empty()
-            animation_placeholder.empty()
-            st.markdown(
+            countdown_placeholder.markdown(
                 "<h2 style='text-align: center; color: red;'>🎉 The wait is over! Celebrate your love! 🎉</h2>",
                 unsafe_allow_html=True,
             )
     except ValueError:
         st.error("Invalid date format! Please enter the date in YYYY-MM-DD.")
-
