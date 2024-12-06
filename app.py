@@ -39,18 +39,18 @@ if target_date_input:
                 unsafe_allow_html=True,
             )
         else:
-            # Display the countdown and dancing couple animation
+            # Display the countdown and loving couple animation
             st.markdown("<h2 style='text-align: center;'>⏳ Time Remaining:</h2>", unsafe_allow_html=True)
             
             # Create placeholders for countdown and animation
             countdown_placeholder = st.empty()
             animation_placeholder = st.empty()
             
-            # Embed a dancing couple GIF
+            # Embed a more romantic GIF of a loving couple dancing
             animation_placeholder.markdown(
                 """
                 <div style='text-align: center;'>
-                    <img src='https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif' width='400' />
+                    <img src='https://media.giphy.com/media/l0HlPjezGYj6rg2Io/giphy.gif' width='400' />
                 </div>
                 """,
                 unsafe_allow_html=True,
