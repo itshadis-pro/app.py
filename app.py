@@ -12,12 +12,11 @@ st.markdown(
 st.markdown("### 🥰 Enter the date you're looking forward to, my love! (YYYY-MM-DD):")
 target_date_input = st.text_input("")
 
-# Background color customization
+# Background customization
 page_bg_color = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-color: #ffe4e1;
-    background-size: cover;
 }
 [data-testid="stHeader"] {
     background-color: rgba(0, 0, 0, 0);
@@ -63,7 +62,7 @@ if target_date_input:
                 minutes = (total_seconds // 60) % 60
                 seconds = total_seconds % 60
 
-                # Update the countdown with romantic formatting
+                # Update the countdown
                 countdown_placeholder.markdown(f"""
                 <div style='text-align: center; font-size: 24px;'>
                     <p style='font-size: 40px; color: #ff69b4;'>💝 {days} Days 💝</p>
