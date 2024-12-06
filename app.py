@@ -27,13 +27,6 @@ page_bg_color = """
 """
 st.markdown(page_bg_color, unsafe_allow_html=True)
 
-# Dancing couple GIF
-dancing_gif_url = "https://media.giphy.com/media/l4Ki2obCyAQS5WhFe/giphy.gif"  # Replace with your preferred GIF
-st.markdown(
-    f"<div style='text-align: center;'><img src='{dancing_gif_url}' width='300'></div>",
-    unsafe_allow_html=True,
-)
-
 if target_date_input:
     try:
         # Parse the target date
@@ -79,3 +72,4 @@ if target_date_input:
             )
     except ValueError:
         st.error("Invalid date format! Please enter the date in YYYY-MM-DD.")
+
