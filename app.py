@@ -87,3 +87,4 @@ if target_date_input:
             )
     except ValueError:
         st.error("Invalid date format! Please enter the date in YYYY-MM-DD.")
+
